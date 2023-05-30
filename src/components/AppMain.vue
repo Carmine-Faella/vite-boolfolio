@@ -1,8 +1,12 @@
 <script>
   import axios from 'axios';
+  import ProjectCard from './ProjectCard.vue';
 
 export default {
     name: 'AppMain',
+    components: {
+            ProjectCard,
+    },
     data() {
         return {
             projects: [],
@@ -42,16 +46,13 @@ export default {
 <div class="container">
     <div class="row">
 
-        <div class="col-4" v-for="project in projects">
-            <div class="card bg-black text-white text-center">
-                <img v-if="projects.cover_image" :src="`${this.url}/storage/${projects.cover_image}`" class="card-img-top">
-                <img v-else src="https://picsum.photos/200/200" class="card-img-top"/>
-                <div class="card-body card-wrapper">
-                    <h5 class="card-title py-3">{{project.title}}</h5>
-                    <p class="card-text">{{project.content}}</p>
-                    <a href="#" class="btn btn-primary mt-3">Vedi project completo</a>
-                </div>
-            </div>
+        <div class="col-4" v-for="project,index in projects" :key="index">
+            <ProjectCard 
+                :image="projects.cover_image" 
+                :url="this.url" 
+                :title="project.title" 
+                :content="project.content">
+            </ProjectCard>
         </div>
 
         <nav aria-label="Page navigation example">
@@ -60,7 +61,6 @@ export default {
                 <li class="page-item"><button class="page-link" @click="getProjects(currentPage + 1)" :class="{'disabled' : currentPage == lastPage}">Next</button></li>
             </ul>
         </nav>
-            
     </div>
 </div>
 
@@ -68,9 +68,5 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
-    .card-wrapper{
-        height: 300px;
-    }
 
 </style>
