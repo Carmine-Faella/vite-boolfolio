@@ -1,6 +1,7 @@
 <script>
   import axios from 'axios';
-  import ProjectCard from './ProjectCard.vue';
+  import ProjectCard from '../components/ProjectCard.vue';
+  import {store} from '../store.js';
 
 export default {
     name: 'AppMain',
@@ -10,7 +11,7 @@ export default {
     data() {
         return {
             projects: [],
-            url: 'http://localhost:8000',
+            store,
             currentPage: 1,
             lastPage: null
         }
@@ -18,7 +19,7 @@ export default {
     methods: {
         getProjects(gotoPage) {
 
-            axios.get(`${this.url}/api/projects`,
+            axios.get(`${this.store.url}/api/projects`,
                 {
                     params: {
                         page: gotoPage
@@ -47,14 +48,7 @@ export default {
     <div class="row">
 
         <div class="col-4" v-for="project,index in projects" :key="index">
-            <ProjectCard 
-                :image="projects.cover_image" 
-                :url="this.url" 
-                :title="project.title" 
-                :content="project.content"
-                :type="project.type"
-                :tecnologies="project.tecnologies">
-            </ProjectCard>
+            <ProjectCard :project="project"></ProjectCard>
         </div>
 
         <nav aria-label="Page navigation example">
