@@ -6,7 +6,9 @@
             image:String,
             url:String,
             title:String,
-            content:String
+            content:String,
+            type:Array,
+            tecnologies:Array
         }
     }
 </script>
@@ -17,15 +19,19 @@
         <img v-else src="https://picsum.photos/200/200" class="card-img-top" :alt="title"/>
         <div class="card-body card-wrapper">
             <h5 class="card-title py-3">{{title}}</h5>
+            <p class="card-text" v-if="type">{{type.name}}</p>
+            <div v-if="tecnologies" class="d-flex justify-content-center flex-wrap">
+                <p class="pe-2 badge text-bg-primary" v-for="tecnology in tecnologies">{{tecnology.name_tech}}</p>
+            </div>
             <p class="card-text">{{content}}</p>
-            <a href="#" class="btn btn-primary mt-3">Vedi project completo</a>
+            <a href="#" class="btn btn-primary">Vedi project completo</a>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
     .card-wrapper{
-        height: 300px;
+        height: 350px;
     }
     
 </style>

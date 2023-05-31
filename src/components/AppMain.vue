@@ -51,7 +51,9 @@ export default {
                 :image="projects.cover_image" 
                 :url="this.url" 
                 :title="project.title" 
-                :content="project.content">
+                :content="project.content"
+                :type="project.type"
+                :tecnologies="project.tecnologies">
             </ProjectCard>
         </div>
 
