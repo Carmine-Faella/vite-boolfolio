@@ -21,7 +21,7 @@
             <h5 class="card-title py-3">{{project.title}}</h5>
             <p class="card-text" v-if="type">{{project.type.name}}</p>
             <div v-if="project.tecnologies" class="d-flex justify-content-center flex-wrap">
-                <p class="pe-2 badge text-bg-primary" v-for="tecnology in tecnologies">{{project.tecnology.name_tech}}</p>
+                <p class="pe-2 badge text-bg-primary" v-for="tecnology in project.tecnologies">{{tecnology.name_tech}}</p>
             </div>
             <p class="card-text">{{project.content}}</p>
 
