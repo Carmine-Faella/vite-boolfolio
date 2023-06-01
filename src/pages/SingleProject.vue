@@ -25,13 +25,5 @@
 </script>
 
 <template>
-    <div class="text-center">
-        <h1>{{ project.title }}</h1>
-        <div class="py-3">{{ project.content }}</div>
-        <div v-if="project.tecnologies" class="d-flex justify-content-center flex-wrap">
-            <p class="pe-2 badge text-bg-primary" v-for="tecnology in project.tecnologies">{{tecnology.name_tech}}</p>
-        </div>
-        <div v-if="project.type">{{project.type.name}}</div>
-    </div>
-
+    <h1>Questo è un project</h1>
 </template>

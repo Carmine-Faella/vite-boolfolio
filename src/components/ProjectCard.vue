@@ -15,11 +15,10 @@
 
 <template>
     <div class="card bg-black text-white text-center">
-        <img v-if="project.cover_image" :src="`${$this.store.url}/storage/${project.cover_image}`" class="card-img-top" :alt="project.title"/>
+        <img v-if="project.cover_image" :src="`${this.store.url}/storage/${project.cover_image}`" class="card-img-top" :alt="project.title"/>
         <img v-else src="https://picsum.photos/200/200" class="card-img-top" :alt="project.title"/>
         <div class="card-body card-wrapper">
             <h5 class="card-title py-3">{{project.title}}</h5>
-            <p class="card-text" v-if="type">{{project.type.name}}</p>
             <div v-if="project.tecnologies" class="d-flex justify-content-center flex-wrap">
                 <p class="pe-2 badge text-bg-primary" v-for="tecnology in project.tecnologies">{{tecnology.name_tech}}</p>
             </div>
