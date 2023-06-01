@@ -23,7 +23,7 @@
                 <p class="pe-2 badge text-bg-primary" v-for="tecnology in project.tecnologies">{{tecnology.name_tech}}</p>
             </div>
             <p class="card-text">{{project.content}}</p>
-
+            <p class="badge text-bg-primary">{{project.type?.name}}</p>
             <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-primary">
                 Vedi project completo
             </router-link>
