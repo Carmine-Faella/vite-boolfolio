@@ -15,7 +15,7 @@
                     },
                     {
                         label: 'Contattami',
-                        routeName: 'contact'
+                        routeName: 'contacts'
                     },
                     {
                         label: 'About',

@@ -17,8 +17,8 @@ const router = createRouter(
                 component: AppHome
             },
             {
-                path: '/contact',
-                name: 'contact',
+                path: '/contacts',
+                name: 'contacts',
                 component: AppContact
             },
             {
