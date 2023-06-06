@@ -29,7 +29,7 @@ export default {
                 message: this.message,
             }
 
-            axios.post(`${this.store.url}/api/contacts`, payload)
+            axios.post(`http://127.0.0.1:8000/api/contacts`, payload)
                 .then(response => {
                     console.log(response);
                     if (response.data.success) {
